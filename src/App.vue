@@ -18,15 +18,16 @@
 
   <div class="black-bg" v-if="ifopen == true">
     <div class="white-bg">
-      <h4>상세페이지</h4>
-      <p>상세페이지내용</p>
+      <img src="">
+      <h4>{{room[0].title}}</h4>
+      <p>{{room[0].price}}</p>
     </div>
   </div>
 
 </template>
 
 <script>
-import oneroom from './data/oneroom.js'
+  import onerooms from './data/oneroom.js';
   export default{
     name: 'App', 
     data(){
@@ -36,7 +37,7 @@ import oneroom from './data/oneroom.js'
         prices : ['50', '60', '70'],
         report : [0,0,0],
         ifopen : false,
-        data: oneroom,
+        room : onerooms,
       }
     }
   }
