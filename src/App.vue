@@ -4,7 +4,9 @@
     <a v-for="naming in menu" :key="naming">{{ naming }}</a>
   </div>
 
-  <ModalOpen :ifopen="ifopen" :num1="num1" v-if="ifopen" @modalClose="ifopen=false"/>
+  <transition name="fade">
+    <ModalOpen :ifopen="ifopen" :num1="num1" v-if="ifopen" @modalClose="ifopen=false"/>
+  </transition>
 
   <div class="main"
       v-for="(item, index) in room" :key="index">
@@ -42,7 +44,7 @@
 <style>
 img{
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -55,6 +57,9 @@ img{
   background: darkslateblue;
   padding: 15px;
   border-radius: 5px;
+  width: 100%;
+  position: fixed;
+  margin-top: -5px;
 }
 .menu a{
   color : white;
@@ -85,5 +90,18 @@ div{
 }
 .main{
   margin-top: 5px;
+  padding-top: 55px;
+}
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: all 1s;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+button{
+  margin-bottom: 5px;
 }
 </style>
