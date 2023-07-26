@@ -3,22 +3,25 @@
   <div class="black-bg">
     <div class="white-bg">
       <img src="">
-      <h4>title</h4>
-      <p>price</p>
+      <h4>{{ room[num1].title }}</h4>
+      <p>{{ room[num1].content }}</p>
       <button @click="$emit('modalClose')">닫기</button>
     </div>
   </div>
 </template>
 
 <script>
+import oneroom from '../data/oneroom.js';
 export default {
+    data(){
+      return{
+        room: oneroom
+      }
+    },
     props : {
-      room: Array
+      num1: Number
     },
     methods: {
-      onEmit(){
-        this.$emit("ifopen", false);
-      }
     }
 
 }

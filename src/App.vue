@@ -4,11 +4,11 @@
     <a v-for="naming in menu" :key="naming">{{ naming }}</a>
   </div>
 
-  <ModalOpen v-bind:ifopen="ifopen" v-if="ifopen" @modalClose="ifopen=false"/>
+  <ModalOpen :ifopen="ifopen" :num1="num1" v-if="ifopen" @modalClose="ifopen=false"/>
 
   <div class="main"
       v-for="(item, index) in room" :key="index">
-    <button class="modal" v-bind:num1="index" @click="ifopen = true">
+    <button class="modal" v-bind:num1="index" @click="ifopen = true; num1=index;">
       {{ item.title }}
     </button>
     <img :src="require(`@/assets/room${ index }.jpg`)"/>
