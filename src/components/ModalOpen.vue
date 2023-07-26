@@ -1,18 +1,26 @@
 <template>
 
-  <div class="black-bg" v-if="state == true">
+  <div class="black-bg">
     <div class="white-bg">
       <img src="">
       <h4>title</h4>
       <p>price</p>
-      <button @click="ifopen = false">닫기</button>
+      <button @click="$emit('modalClose')">닫기</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    props : ['state']
+    props : {
+      room: Array
+    },
+    methods: {
+      onEmit(){
+        this.$emit("ifopen", false);
+      }
+    }
+
 }
 </script>
 

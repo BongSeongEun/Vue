@@ -4,11 +4,11 @@
     <a v-for="naming in menu" :key="naming">{{ naming }}</a>
   </div>
 
-  <ModalOpen v-bind:state="ifopen"/>
+  <ModalOpen v-bind:ifopen="ifopen" v-if="ifopen" @modalClose="ifopen=false"/>
 
   <div class="main"
       v-for="(item, index) in room" :key="index">
-    <button class="modal" @click="ifopen = true">
+    <button class="modal" v-bind:num1="index" @click="ifopen = true">
       {{ item.title }}
     </button>
     <img :src="require(`@/assets/room${ index }.jpg`)"/>
@@ -31,12 +31,9 @@
     data(){
       return{
         menu : ['Home', 'Shop', 'About'],
-        products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
-        prices : ['50', '60', '70'],
         report : [0,0,0,0,0,0],
         room : oneroom,
         ifopen : false,
-
       }
     }
   }
